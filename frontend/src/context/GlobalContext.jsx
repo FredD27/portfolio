@@ -1,14 +1,10 @@
-import React, { createContext, useMemo, useContext, useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import React, { createContext, useMemo, useContext } from "react";
 import PropTypes from "prop-types";
 import ApiService from "../services/api.services";
 
 const GlobalContext = createContext();
 
 function GlobalContextProvider({ children, apiService }) {
-  const givenData = useLoaderData();
-  const [user, setUser] = useState(givenData?.preloadUser?.data);
-
   const ProjectArray = [
     {
       title: "GreenPoint",

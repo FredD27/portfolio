@@ -1,40 +1,55 @@
 .menu {
   display: flex;
-  background-color: transparent;
+  background-color: var(--light-color);
   align-items: center;
   justify-content: center;
   padding: 0 5%;
-  z-index: 3;
+  position: relative; /* Changer la valeur de position */
+  z-index: 10;
 }
+
 .menu ul {
   list-style: none;
   display: flex;
 }
+
 .menu ul li {
   padding: 10px 30px;
   position: relative;
 }
+
 .menu ul li a {
-  color: var(--light-color);
+  color: var(--dark-color);
   text-decoration: none;
   font-size: 20px;
   transition: all 0.5s ease-in-out;
 }
+
 .menu ul li a:hover {
-  color: var(--dark-color);
+  color: rgb(149, 99, 156);
 }
+
 .dropdown-menu {
   display: none;
 }
+
 .menu ul li:hover .dropdown-menu {
   display: block;
-  position: absolute;
   left: 0;
   top: 100%;
-  background-color: transparent;
+  background-color: var(--light-color);
   z-index: 1;
 }
+
 .dropdown-menu ul {
   display: block;
   padding: 0;
+}
+
+/* Additional styles to make project titles appear vertically */
+.dropdown-menu ul li {
+  display: block;
+}
+.dropdown-menu ul li a:hover {
+  color: rgb(149, 99, 156); /* Set your desired hover color */
 }

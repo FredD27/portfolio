@@ -15,18 +15,16 @@ function NavBar() {
           <Link to="/">Mes Projets</Link>
           <div className="dropdown-menu">
             <ul>
-              <li>
-                {ProjectArray.map((projet) => {
-                  return (
-                    <Link to={`/projet/${projet.title}`}>{projet.title}</Link>
-                  );
-                })}
-              </li>
+              {ProjectArray.map((projet) => (
+                <li key={projet.title}>
+                  <Link to={`/projet/${projet.title}`}>{projet.title}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </li>
         <li>
-          <Link to="/login">Se connecter</Link>
+          <Link to="/login">Se Connecter</Link>
         </li>
       </ul>
     </div>
