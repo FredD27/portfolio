@@ -1,9 +1,14 @@
-import React, { createContext, useMemo, useContext } from "react";
+import React, { createContext, useMemo, useContext, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import ApiService from "../services/api.services";
 
 const GlobalContext = createContext();
 
-function GlobalContextProvider({ children }) {
+function GlobalContextProvider({ children, apiService }) {
+  const givenData = useLoaderData();
+  const [user, setUser] = useState(givenData?.preloadUser?.data);
+
   const ProjectArray = [
     {
       title: "GreenPoint",
@@ -96,8 +101,8 @@ function GlobalContextProvider({ children }) {
   ];
 
   const values = useMemo(
-    () => ({ ProjectArray, SkillArray, ToolArray }),
-    [ProjectArray, SkillArray, ToolArray]
+    () => ({ ProjectArray, SkillArray, ToolArray, apiService }),
+    [ProjectArray, SkillArray, ToolArray, apiService]
   );
 
   return (
@@ -107,6 +112,7 @@ function GlobalContextProvider({ children }) {
 
 GlobalContextProvider.propTypes = {
   children: PropTypes.element.isRequired,
+  apiService: PropTypes.instanceOf(ApiService).isRequired,
 };
 
 export default GlobalContextProvider;

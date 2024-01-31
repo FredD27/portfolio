@@ -1,0 +1,40 @@
+.menu {
+  display: flex;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  z-index: 3;
+}
+.menu ul {
+  list-style: none;
+  display: flex;
+}
+.menu ul li {
+  padding: 10px 30px;
+  position: relative;
+}
+.menu ul li a {
+  color: var(--light-color);
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.5s ease-in-out;
+}
+.menu ul li a:hover {
+  color: var(--dark-color);
+}
+.dropdown-menu {
+  display: none;
+}
+.menu ul li:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: transparent;
+  z-index: 1;
+}
+.dropdown-menu ul {
+  display: block;
+  padding: 0;
+}

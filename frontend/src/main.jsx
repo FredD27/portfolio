@@ -4,6 +4,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import GlobalContextProvider from "./context/GlobalContext";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "./App.css";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
       // {
       //   path: "/projet/:title",
