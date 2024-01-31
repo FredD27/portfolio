@@ -1,15 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import App from "./App";
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import GlobalContextProvider from "./context/GlobalContext";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <GlobalContextProvider>
+        <App />
+      </GlobalContextProvider>
+    ),
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      // {
+      //   path: "/projet/:title",
+      //   element: <MonProjet />,
+      // },
+    ],
   },
 ]);
 
