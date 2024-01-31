@@ -19,7 +19,7 @@ class UserManager extends AbstractManager {
   async login(user) {
     const { email, password } = user;
     const [rows] = await this.database.query(
-      `SELECT * FROM customers WHERE email LIKE ?`,
+      `SELECT * FROM user WHERE email LIKE ?`,
       [email]
     );
 
@@ -36,7 +36,10 @@ class UserManager extends AbstractManager {
   }
 
   getProfile(id) {
-    return this.database.query(`SELECT * FROM user WHERE id = ?;`, [id]);
+    return this.database.query(
+      `SELECT id, name, email FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
   }
 
   static hashPassword(password, workFactor = 5) {

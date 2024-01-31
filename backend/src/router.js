@@ -10,9 +10,12 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
 
+const { authMiddleware } = require("./middlewares/auth.middlewares");
+
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
 router.get("/users", userControllers.getUsers);
+router.get("/users/me", authMiddleware, userControllers.getProfile);
 
 // Route to get a specific item by ID
 router.get("/items/:id", itemControllers.read);

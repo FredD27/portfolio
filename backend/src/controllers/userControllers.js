@@ -16,6 +16,11 @@ const getUsers = (_, res) => {
       res.sendStatus(500);
     });
 };
+
+const getProfile = (req, res) => {
+  res.send(req.user);
+};
+
 const postUser = async (req, res) => {
   try {
     const rows = await tables.user.create(req.body);
@@ -47,4 +52,4 @@ const postLogin = async (req, res) => {
   }
 };
 
-module.exports = { postUser, postLogin, getUsers };
+module.exports = { postUser, postLogin, getUsers, getProfile };
