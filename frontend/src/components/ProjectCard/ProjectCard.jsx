@@ -3,18 +3,22 @@ import { useGlobalContext } from "../../context/GlobalContext";
 import "./ProjectCard.css";
 
 function ProjectCard() {
-  const { ProjectArray } = useGlobalContext();
+  const { ProjectArray, projects } = useGlobalContext();
 
   return (
     <div className="carroussel-container">
       <h1 className="titles">Mon Portefolio</h1>
       <img src="../src/assets/arrow.png" className="arrow" alt="Fleche" />
       <div className="projet-container">
-        {ProjectArray.map((projet) => {
+        {projects.map((projet, index) => {
           return (
             <div className="projet" key={projet.title}>
               <h3>{projet.title}</h3>
-              <img className="img-projet" src={projet.img} alt={projet.title} />
+              <img
+                className="img-projet"
+                src={ProjectArray[index].img}
+                alt={ProjectArray[index].title}
+              />
               <div>
                 <Link
                   to={`/projet/${projet.title}`}

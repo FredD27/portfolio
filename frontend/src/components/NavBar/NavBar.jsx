@@ -3,7 +3,7 @@ import "./NavBar.css";
 import { useGlobalContext } from "../../context/GlobalContext";
 
 function NavBar() {
-  const { ProjectArray } = useGlobalContext();
+  const { projects } = useGlobalContext();
 
   return (
     <div className="menu">
@@ -15,7 +15,7 @@ function NavBar() {
           <Link to="/">Mes Projets</Link>
           <div className="dropdown-menu">
             <ul>
-              {ProjectArray.map((projet) => (
+              {projects.map((projet) => (
                 <li key={projet.title}>
                   <Link to={`/projet/${projet.title}`}>{projet.title}</Link>
                 </li>

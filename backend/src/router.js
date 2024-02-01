@@ -10,6 +10,7 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
 const skillControllers = require("./controllers/skillControllers");
+const projectControllers = require("./controllers/projectControllers");
 
 const { authMiddleware } = require("./middlewares/auth.middlewares");
 
@@ -18,6 +19,8 @@ router.get("/items", itemControllers.browse);
 router.get("/users", userControllers.getUsers);
 router.get("/users/me", authMiddleware, userControllers.getProfile);
 router.get("/skills", skillControllers.getSkills);
+router.get("/projects", projectControllers.getProjects);
+router.get("/projects/:title", projectControllers.getProjectByName);
 
 // Route to get a specific item by ID
 router.get("/items/:id", itemControllers.read);

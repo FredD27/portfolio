@@ -6,11 +6,13 @@
 const ItemManager = require("./models/ItemManager");
 const UserManager = require("./models/UserManager");
 const SkillManager = require("./models/SkillManager");
+const ProjectManager = require("./models/ProjectManager");
 
 const managers = [
   ItemManager,
   UserManager,
   SkillManager,
+  ProjectManager,
   // Add other managers here
 ];
 
