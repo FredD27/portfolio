@@ -11,12 +11,12 @@
   display: flex;
   gap: 15px;
 }
-h2 {
+.contacts h2 {
   color: var(--main-color);
   margin-bottom: 6px;
   font-size: 20px;
 }
-h3 {
+.contacts h3 {
   color: var(--dark-color);
   font-size: 15px;
 }
@@ -74,11 +74,11 @@ h3 {
     width: 80%;
     justify-content: space-around;
   }
-  h2 {
-    font-size: 28px;
+  .contacts h2 {
+    font-size: 30px;
     margin-bottom: 15px;
   }
-  h3 {
+  .contacts h3 {
     font-size: 20px;
   }
   .big-icon-share {

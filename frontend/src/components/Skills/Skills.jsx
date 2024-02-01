@@ -28,8 +28,8 @@ function Skills() {
         <div className="bubbles-container">
           {skills.map((skill) => {
             return (
-              <div className="bubble-skill" key={skill.name}>
-                <p>{skill.name}</p>
+              <div key={skill.name}>
+                <p className="bubble-skill">{skill.name}</p>
               </div>
             );
           })}
@@ -41,8 +41,8 @@ function Skills() {
         <div className="bubbles-container">
           {ToolArray.map((tool) => {
             return (
-              <div className="bubble-tool" key={tool.language}>
-                <p>{tool.language}</p>
+              <div key={tool.language}>
+                <p className="bubble-tool">{tool.language}</p>
               </div>
             );
           })}

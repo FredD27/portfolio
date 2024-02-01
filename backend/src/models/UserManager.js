@@ -30,7 +30,6 @@ class UserManager extends AbstractManager {
     const dbUser = rows[0];
 
     const result = await bcrypt.compare(password, dbUser.password);
-    // console.log(result);
 
     return result ? dbUser : undefined;
   }

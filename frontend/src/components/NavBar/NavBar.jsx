@@ -16,7 +16,7 @@ function NavBar() {
           <div className="dropdown-menu">
             <ul>
               {projects.map((projet) => (
-                <li key={projet.title}>
+                <li key={projet.id}>
                   <Link to={`/projet/${projet.title}`}>{projet.title}</Link>
                 </li>
               ))}

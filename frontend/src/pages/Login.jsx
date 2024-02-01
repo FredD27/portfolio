@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import "./login.css";
@@ -9,6 +9,7 @@ function Login() {
   const givenData = useLoaderData();
   const { apiService } = useGlobalContext();
   const [user, setUser] = useState(givenData?.preloadUser?.data);
+  const navigate = useNavigate();
 
   const [formValue, setFormValue] = useState({
     email: "",
@@ -26,6 +27,9 @@ function Login() {
       const result = await apiService.get("http://localhost:3310/api/users/me");
       alert(`Content de vous revoir ${result.data.name}`);
       setUser(result.data);
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     } catch (err) {
       console.error(err);
       alert("Erreur de connexion. Vérifiez vos identifiants.");

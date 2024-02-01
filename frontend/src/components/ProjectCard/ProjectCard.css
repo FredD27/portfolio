@@ -90,6 +90,13 @@
   text-decoration: none;
   transform: scale(1.07);
 }
+.action-card {
+  display: flex;
+  align-items: center;
+}
+.trash-pic {
+  height: 20px;
+}
 
 @media screen and (min-width: 768px) {
   .carroussel-container {

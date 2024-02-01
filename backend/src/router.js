@@ -30,6 +30,13 @@ router.post("/items", itemControllers.add);
 router.post("/users", userControllers.postUser);
 router.post("/login", userControllers.postLogin);
 
+// Route to delete a new item
+router.delete(
+  "/projects/:id",
+  authMiddleware,
+  projectControllers.deleteProject
+);
+
 /* ************************************************************************* */
 
 module.exports = router;

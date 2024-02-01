@@ -1,3 +1,4 @@
+
 USE portefolio;
 
 DROP TABLE IF EXISTS skill;
@@ -25,7 +26,7 @@ CREATE TABLE IF NOT EXISTS tool (
     name VARCHAR(255) NOT NULL
 );
 
-INSERT INTO skill (name) VALUES 
+INSERT INTO tool (name) VALUES 
     ('TRELLO'),
     ('GITHUB'),
     ('MYSQL'),
@@ -106,4 +107,9 @@ INSERT INTO project_skill (project_id, skill_id) VALUES
     ('4', '8'),
     ('4', '9')
     ;
+
+INSERT INTO project (title, description, fonction, url) VALUES 
+('GreenPoint', "Dans le cadre de mon projet 2 de mon bootcamp à la Wild Code School,  l'objectif principal  était de consommer une API. Nous avons souhaité aborder le problème de l'écologie. Nous avons donc imaginé un site qui permettrait de calculer l'empreinte carbone d'un utilisateur. Suivant son score final, il remporte un certain nombre de GreenPoint, qu'il va pouvoir échanger contre des récompenses telles qu'un bon de réduction sur trajet Blablacar, ou encore sur un abonnement de transport en commun de la région comme TBM. Nous souhaitions valoriser les comportements responsables et encourager ceux qui ne le sont pas encore!", "Avec un questionnaire sur nos comportements quotidiens, comme l'utilisation de la voiture ou des transport en commun, sa consommation d'électricité ou de viande rouge, nous pouvons communiquer ces réponses à l'API CarbonInterface qui nous renvoie directement l'empreinte carbone relative à ces réponses en Kg carbone. Nous convertissons ces données en Kg de CO2 et informons ensuite l'utilisateur de son bilan carbone. Notre système de point en fonction de ce bilan permet à l'utilisateur d'en tirer une certaine valorisation concrète. Nous souhaitons en version 2, pouvoir nous rapprocher des institutions administratives afin de sécuriser ces données et permettre à l'utilisateur un véritable suivi et récompenses dans un cadre contrôlé et sécurisé.", "https://github.com/WildCodeSchool/2023-09-JS-BDX-P2-one-team-one-dream"), 
+("L'avent-Garde", "Dans le cadre de mon premier Hackathon de mon bootcamp à la Wild Code School, nous avons développé un calendrier de l'avent de Noël. L'occasion à chaque petite boîte ouverte de découvrir une idée recette, activité ou encore idée cadeau ou film de Noël! Pour ce projet, nous travaillé avec les autres classes de la formation, classe PHP et la classe Data Analyst. Le but étant de coordonner nos compétences afin de concevoir un site viable et complet en 48h. La communication et l'entre-aide ont été les clés de ce projet collectif, épanouissant et abouti.", "Les data analysts se sont chargés de la récolte de données comme des idées cadeaux, ou encore des films de Noël ainsi de la construction de la base de données. Les étudiants PHP se sont quant à eux occupés du lien backend/frontend. Pour notre part, en tant qu'étudiant JavaScript/React, nous avons donc récupérer les données de cette API et avons imaginé, construit et rendu fonctionnelle toute l'interface utilisateur, avec un calendrier de l'avent interactif. Les cadeaux sont générés de manière aléatoire afin que chaque calendrier propose des cadeaux différents. La découverte et l'utilisation de Docker nous a permis de relier tout notre travail de manière très efficace.", "https://github.com/WildCodeSchool/2023-09-bordeaux-hackathon-Marre_a_thon")
+;
 

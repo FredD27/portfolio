@@ -1,20 +1,19 @@
 .menu {
-  /* display: flex; */
-  background-color: var(--light-color);
-  /* align-items: center; */
-  /* justify-content: flex-start; */
+  background: linear-gradient(to right, var(--light-color), var(--main-color));
   padding: 0 5%;
-  position: relative; /* Changer la valeur de position */
-  z-index: 10;
+  position: relative;
+  z-index: 3;
 }
 
 .menu ul {
   list-style: none;
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .menu ul li {
-  padding: 10px 30px;
+  padding: 10px 20px;
   position: relative;
 }
 
@@ -24,14 +23,18 @@
   text-decoration: none;
   font-size: 15px;
   transition: all 0.5s ease-in-out;
+  align-items: center;
+  white-space: nowrap;
+  font-weight: bold;
 }
 
 .menu ul li a:hover {
-  color: rgb(149, 99, 156);
+  color: var(--main-color);
 }
 
 .dropdown-menu {
   display: none;
+  width: 200px;
 }
 
 .menu ul li:hover .dropdown-menu {
@@ -47,10 +50,18 @@
   padding: 0;
 }
 
-/* Additional styles to make project titles appear vertically */
 .dropdown-menu ul li {
   display: block;
 }
 .dropdown-menu ul li a:hover {
-  color: rgb(149, 99, 156); /* Set your desired hover color */
+  color: var(--main-color);
+}
+
+@media screen and (min-width: 768px) {
+  .menu ul li a {
+    font-size: 25px;
+  }
+  .dropdown-menu {
+    width: 300px;
+  }
 }
