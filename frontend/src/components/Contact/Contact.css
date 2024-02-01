@@ -1,0 +1,87 @@
+.contact-container {
+  background-color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 25px;
+  font-family: "Sarabun", sans-serif;
+}
+.contact-title {
+  display: flex;
+  gap: 15px;
+}
+h2 {
+  color: var(--main-color);
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+h3 {
+  color: var(--dark-color);
+  font-size: 15px;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid var(--light-color);
+  box-shadow: 10px 10px 15px var(--dark-color);
+  padding: 25px;
+  width: 320px;
+  /* margin-top: 15px; */
+  gap: 30px;
+}
+.one-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.github,
+.linkedIn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+.big-icon-share {
+  align-items: center;
+  color: var(--main-color);
+  font-size: 20px;
+}
+.icon-share {
+  font-size: 18px;
+  color: var(--dark-color);
+}
+.github a:hover,
+.linkedIn a:hover,
+.mail:hover {
+  text-decoration: underline;
+  color: var(--main-color);
+}
+
+@media screen and (min-width: 768px) {
+  .contact-container {
+    padding: 60px 35px;
+    /* margin: 60px 25px; */
+    gap: 15px;
+  }
+  .contacts {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    width: 80%;
+    justify-content: space-around;
+  }
+  h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  .big-icon-share {
+    font-size: 28px;
+  }
+}

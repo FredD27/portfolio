@@ -7,6 +7,7 @@ import ApiService from "./services/api.services";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import MesProjets from "./pages/MesProjets";
 
 const apiService = new ApiService();
 
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       }
     },
     element: (
-      <GlobalContextProvider>
+      <GlobalContextProvider apiService={apiService}>
         <App />
       </GlobalContextProvider>
     ),
@@ -40,10 +41,10 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
-      // {
-      //   path: "/projet/:title",
-      //   element: <MonProjet />,
-      // },
+      {
+        path: "/projet/:title",
+        element: <MesProjets />,
+      },
     ],
   },
 ]);

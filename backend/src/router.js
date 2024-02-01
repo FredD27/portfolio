@@ -9,6 +9,7 @@ const router = express.Router();
 // Import itemControllers module for handling item-related operations
 const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
+const skillControllers = require("./controllers/skillControllers");
 
 const { authMiddleware } = require("./middlewares/auth.middlewares");
 
@@ -16,6 +17,7 @@ const { authMiddleware } = require("./middlewares/auth.middlewares");
 router.get("/items", itemControllers.browse);
 router.get("/users", userControllers.getUsers);
 router.get("/users/me", authMiddleware, userControllers.getProfile);
+router.get("/skills", skillControllers.getSkills);
 
 // Route to get a specific item by ID
 router.get("/items/:id", itemControllers.read);

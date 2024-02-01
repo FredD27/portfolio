@@ -1,0 +1,114 @@
+.carroussel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 25px;
+  font-family: "Sarabun", sans-serif;
+  color: var(--dark-color);
+}
+.img-projet {
+  height: 115px;
+  width: 230px;
+  border: 2px solid var(--dark-color);
+  box-shadow: 60px -16px var(--main-color);
+}
+.projet-container {
+  display: flex;
+  flex-direction: column;
+}
+.projet {
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid var(--light-color);
+  box-shadow: 10px 10px 15px var(--light-color);
+  padding: 25px 25px 10px 25px;
+  width: 350px;
+  margin: 15px 0;
+}
+.projet h3 {
+  margin-bottom: 45px;
+  font-size: 22px;
+}
+.projet p {
+  max-width: 350px;
+  width: 100%;
+}
+.projet h4 {
+  margin-top: 20px;
+}
+.projet h4 a {
+  color: var(--main-color);
+  transition: color 0.3s;
+}
+
+.projet h4 a:hover {
+  text-decoration: underline;
+}
+.little-skills {
+  max-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 20px;
+}
+.litle-bubble {
+  display: flex;
+  align-items: center;
+  padding: 15px 6px;
+  width: 55px;
+  text-align: center;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  border: none;
+  color: var(--light-color);
+  font-family: "Sarabun", sans-serif;
+  font-size: 12px;
+  overflow: hidden;
+}
+.btn-projet {
+  background-image: linear-gradient(
+    to right,
+    var(--dark-color) 0%,
+    #4b3c54 51%,
+    var(--dark-color) 100%
+  );
+  margin: 20px auto;
+  padding: 15px 5px;
+  width: 65%;
+  text-align: center;
+  background-size: 200% auto;
+  border-radius: 15px;
+  border: none;
+  display: block;
+  color: var(--light-color);
+  font-family: "Sarabun", sans-serif;
+  font-size: 18px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+.btn-projet:hover {
+  text-decoration: none;
+  transform: scale(1.07);
+}
+
+@media screen and (min-width: 768px) {
+  .carroussel-container {
+    margin: 60px 35px;
+    gap: 15px;
+  }
+  .projet-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px 25px;
+    gap: 50px;
+  }
+  .img-projet {
+    height: 150px;
+    width: 300px;
+  }
+  .projet {
+    width: 430px;
+  }
+}

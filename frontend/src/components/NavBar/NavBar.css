@@ -1,8 +1,8 @@
 .menu {
-  display: flex;
+  /* display: flex; */
   background-color: var(--light-color);
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: flex-start; */
   padding: 0 5%;
   position: relative; /* Changer la valeur de position */
   z-index: 10;
@@ -20,8 +20,9 @@
 
 .menu ul li a {
   color: var(--dark-color);
+  font-family: "Sarabun", sans-serif;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 15px;
   transition: all 0.5s ease-in-out;
 }
 
