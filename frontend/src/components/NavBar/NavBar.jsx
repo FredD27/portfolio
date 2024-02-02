@@ -28,7 +28,6 @@ function NavBar() {
             <Link to="/login">Connexion</Link>
           </li>
         ) : null}
-
         {user ? (
           <li>
             <Link to="/" onClick={handleLogout}>
