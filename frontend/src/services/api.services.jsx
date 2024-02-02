@@ -27,13 +27,17 @@ export default class ApiService {
     return config;
   }
 
-  get(url) {
+  async get(url) {
     return axios.get(url, this.getConfig());
   }
 
   async post(url, content) {
     const { data } = await axios.post(url, content, this.getConfig());
     return data;
+  }
+
+  async delete(url) {
+    return axios.delete(url, this.getConfig());
   }
 
   isAuthenticated() {

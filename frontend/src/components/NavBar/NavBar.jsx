@@ -3,7 +3,7 @@ import "./NavBar.css";
 import { useGlobalContext } from "../../context/GlobalContext";
 
 function NavBar() {
-  const { projects } = useGlobalContext();
+  const { projects, handleLogout, user } = useGlobalContext();
 
   return (
     <div className="menu">
@@ -23,9 +23,19 @@ function NavBar() {
             </ul>
           </div>
         </li>
-        <li>
-          <Link to="/login">Se Connecter</Link>
-        </li>
+        {!user ? (
+          <li>
+            <Link to="/login">Connexion</Link>
+          </li>
+        ) : null}
+
+        {user ? (
+          <li>
+            <Link to="/" onClick={handleLogout}>
+              Déconnection
+            </Link>
+          </li>
+        ) : null}
       </ul>
     </div>
   );

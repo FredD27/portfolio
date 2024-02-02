@@ -6,7 +6,17 @@ import { useGlobalContext } from "../../context/GlobalContext";
 import "./ProjectCard.css";
 
 function ProjectCard() {
-  const { ProjectArray, projects } = useGlobalContext();
+  const { ProjectArray, projects, setProjects, apiService, user } =
+    useGlobalContext();
+
+  const handleProjectDelete = async (id) => {
+    try {
+      await apiService.delete(`http://localhost:3310/api/projects/${id}`);
+      setProjects([...projects.filter((proj) => proj.id !== id)]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className="carroussel-container">
@@ -40,11 +50,18 @@ function ProjectCard() {
                 >
                   Découvrir {projet.title}
                 </Link>
-                <img
-                  src="../src/assets/trash.png"
-                  className="trash-pic"
-                  alt="trash-pic"
-                />
+                {user ? (
+                  <button
+                    className="invisible-button"
+                    aria-label="toggleFavorite"
+                    type="button"
+                    onClick={() => {
+                      handleProjectDelete(projet.id);
+                    }}
+                  >
+                    <i className="fa-solid fa-trash" />
+                  </button>
+                ) : null}
               </div>
             </div>
           );

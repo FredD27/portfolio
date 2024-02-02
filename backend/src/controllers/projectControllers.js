@@ -28,10 +28,10 @@ const deleteProject = async (req, res) => {
   try {
     const projectId = +req.params.id;
     await tables.project.delete(projectId);
-    res.status(201).json({ message: "Projet supprimé." });
+    res.sendStatus(204);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Project non trouvé ..." });
+    res.status(404).json({ message: "Project non trouvé ..." });
   }
 };
 

@@ -6,12 +6,50 @@ import React, {
   useEffect,
 } from "react";
 import PropTypes from "prop-types";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import ApiService from "../services/api.services";
 
 const GlobalContext = createContext();
 
 function GlobalContextProvider({ children, apiService }) {
   const [projects, setProjects] = useState([]);
+  const givenData = useLoaderData();
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState(givenData?.preloadUser?.data);
+  const [formValue, setFormValue] = useState({
+    email: "",
+    password: "",
+  });
+
+  const login = async () => {
+    try {
+      const data = await apiService.post(
+        "http://localhost:3310/api/login",
+        formValue
+      );
+      localStorage.setItem("token", data.token);
+      apiService.setToken(data.token);
+      const result = await apiService.get("http://localhost:3310/api/users/me");
+      alert(`Content de vous revoir ${result.data.name}`);
+      setUser(result.data);
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (err) {
+      console.error(err);
+      alert("Erreur de connexion. Vérifiez vos identifiants.");
+    }
+    return null;
+  };
+
+  const handleLogout = () => {
+    localStorage.setItem("token", null);
+    apiService.setToken(null);
+    setUser(null);
+    alert(`Déconnexion réussie`);
+    return navigate("/");
+  };
 
   useEffect(() => {
     const getProjects = async () => {
@@ -48,6 +86,16 @@ function GlobalContextProvider({ children, apiService }) {
       img: "../src/assets/lideal.png",
       outils: ["GITHUB", "MYSQL", "FIGMA"],
     },
+    {
+      title: "OMG",
+      img: "../src/assets/gp-img.png",
+      outils: ["TRELLO", "GITHUB", "FIGMA"],
+    },
+    {
+      title: "L'hallu",
+      img: "../src/assets/gp-img.png",
+      outils: ["TRELLO", "GITHUB", "FIGMA"],
+    },
   ];
   const ToolArray = [
     {
@@ -65,8 +113,19 @@ function GlobalContextProvider({ children, apiService }) {
   ];
 
   const values = useMemo(
-    () => ({ ProjectArray, ToolArray, apiService, projects }),
-    [ProjectArray, ToolArray, apiService, projects]
+    () => ({
+      ProjectArray,
+      ToolArray,
+      apiService,
+      projects,
+      setProjects,
+      user,
+      setFormValue,
+      formValue,
+      login,
+      handleLogout,
+    }),
+    [ProjectArray, ToolArray, apiService, projects, user, formValue]
   );
 
   return (

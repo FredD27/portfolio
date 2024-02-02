@@ -1,41 +1,12 @@
-import React, { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+// import React, { useState } from "react";
+// import { useLoaderData, useNavigate } from "react-router-dom";
 
 import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import "./login.css";
 import { useGlobalContext } from "../context/GlobalContext";
 
 function Login() {
-  const givenData = useLoaderData();
-  const { apiService } = useGlobalContext();
-  const [user, setUser] = useState(givenData?.preloadUser?.data);
-  const navigate = useNavigate();
-
-  const [formValue, setFormValue] = useState({
-    email: "",
-    password: "",
-  });
-
-  const login = async () => {
-    try {
-      const data = await apiService.post(
-        "http://localhost:3310/api/login",
-        formValue
-      );
-      localStorage.setItem("token", data.token);
-      apiService.setToken(data.token);
-      const result = await apiService.get("http://localhost:3310/api/users/me");
-      alert(`Content de vous revoir ${result.data.name}`);
-      setUser(result.data);
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    } catch (err) {
-      console.error(err);
-      alert("Erreur de connexion. Vérifiez vos identifiants.");
-    }
-    return null;
-  };
+  const { formValue, setFormValue, login, user } = useGlobalContext();
 
   const onChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
@@ -44,6 +15,12 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login();
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit(e);
+    }
   };
 
   return (
@@ -74,6 +51,7 @@ function Login() {
               label="Mot de Passe"
               name="password"
               onChange={onChange}
+              onKeyPress={handleKeyPress}
             />
           </div>
           <MDBBtn type="submit" block>

@@ -89,13 +89,15 @@
 .btn-projet:hover {
   text-decoration: none;
   transform: scale(1.07);
+  color: #b498c4;
 }
 .action-card {
   display: flex;
   align-items: center;
 }
-.trash-pic {
-  height: 20px;
+.invisible-button {
+  background-color: transparent;
+  border: none;
 }
 
 @media screen and (min-width: 768px) {
