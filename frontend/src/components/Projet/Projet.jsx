@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./Projet.css";
-import { useParams } from "react-router-dom";
 import { useGlobalContext } from "../../context/GlobalContext";
 
 function Projet({ projet }) {
   const { apiService } = useGlobalContext();
-  const { title } = useParams();
-
   const [project, setProject] = useState({});
 
   useEffect(() => {
-    const getProject = async () => {
+    const getProject = async (title) => {
       try {
         const response = await apiService.get(
           `http://localhost:3310/api/projects/${title}`
@@ -21,8 +18,8 @@ function Projet({ projet }) {
         console.error(err);
       }
     };
-    getProject();
-  }, [title]);
+    getProject(projet.title);
+  }, []);
 
   return (
     <div className="page-pjt-container">

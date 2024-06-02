@@ -7,6 +7,22 @@
   padding: 30px 25px;
   font-family: "Sarabun", sans-serif;
 }
+.contacts {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid var(--light-color);
+  box-shadow: 10px 10px 15px var(--dark-color);
+  padding: 25px;
+  width: 320px;
+  gap: 30px;
+}
+.one-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .contact-title {
   display: flex;
   gap: 15px;
@@ -19,24 +35,6 @@
 .contacts h3 {
   color: var(--dark-color);
   font-size: 15px;
-}
-
-.contacts {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  border-radius: 20px;
-  border: 1px solid var(--light-color);
-  box-shadow: 10px 10px 15px var(--dark-color);
-  padding: 25px;
-  width: 320px;
-  /* margin-top: 15px; */
-  gap: 30px;
-}
-.one-contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .github,
 .linkedIn {
@@ -64,7 +62,6 @@
 @media screen and (min-width: 768px) {
   .contact-container {
     padding: 60px 35px;
-    /* margin: 60px 25px; */
     gap: 15px;
   }
   .contacts {

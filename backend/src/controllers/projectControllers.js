@@ -35,4 +35,26 @@ const deleteProject = async (req, res) => {
   }
 };
 
-module.exports = { getProjects, getProjectByName, deleteProject };
+const updateProject = async (req, res) => {
+  try {
+    const id = +req.params.id;
+    let result = await tables.project.update(id, req.body);
+    if (result.affectedRows.length === 0) {
+      return res.status(404);
+    }
+    [result] = await tables.project.findId(id);
+    const project = result[0];
+
+    return res.send(project);
+  } catch (err) {
+    console.error(err);
+    return res.status(422).send({ error: err.message });
+  }
+};
+
+module.exports = {
+  getProjects,
+  getProjectByName,
+  deleteProject,
+  updateProject,
+};

@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 // import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../context/GlobalContext";
 import "./ProjectCard.css";
 
 function ProjectCard() {
+  const navigate = useNavigate();
   const { ProjectArray, projects, setProjects, apiService, user } =
     useGlobalContext();
 
@@ -50,6 +51,18 @@ function ProjectCard() {
                 >
                   Découvrir {projet.title}
                 </Link>
+                {user ? (
+                  <button
+                    className="invisible-button"
+                    aria-label="toggleFavorite"
+                    type="button"
+                    onClick={() => {
+                      navigate(`/projet/edit/${projet.id}`);
+                    }}
+                  >
+                    <i className="fa-regular fa-pen-to-square" />{" "}
+                  </button>
+                ) : null}
                 {user ? (
                   <button
                     className="invisible-button"

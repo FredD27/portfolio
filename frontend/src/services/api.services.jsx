@@ -40,6 +40,11 @@ export default class ApiService {
     return axios.delete(url, this.getConfig());
   }
 
+  async update(url, content) {
+    const { data } = await axios.put(url, content, this.getConfig());
+    return data;
+  }
+
   isAuthenticated() {
     return !!this.#token;
   }

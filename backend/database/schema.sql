@@ -1,4 +1,4 @@
-
+CREATE DATABASE IF NOT EXISTS portefolio;
 USE portefolio;
 
 DROP TABLE IF EXISTS skill;

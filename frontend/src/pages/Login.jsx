@@ -28,9 +28,9 @@ function Login() {
       {user ? (
         <h1 className="login-title">Bienvenue {user.name} !</h1>
       ) : (
-        <h1 className="login-title">Bienvenue</h1>
+        <h1 className="title">Bienvenue</h1>
       )}
-      <div className="login-container">
+      <div className="little-login-container">
         <form onSubmit={handleSubmit}>
           <div className="login-input">
             <MDBInput

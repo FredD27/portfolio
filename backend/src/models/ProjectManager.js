@@ -25,6 +25,22 @@ class ProjectManager extends AbstractManager {
       [title]
     );
   }
+
+  async update(id, project) {
+    const { title, description, fonction, url } = project;
+
+    try {
+      const [result] = await this.database.query(
+        `UPDATE ${this.table} SET title = ?, description = ?, fonction = ?, url = ? WHERE id = ?`,
+        [title, description, fonction, url, id]
+      );
+
+      return result;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
 }
 
 module.exports = ProjectManager;

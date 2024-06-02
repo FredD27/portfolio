@@ -37,6 +37,13 @@ router.delete(
   projectControllers.deleteProject
 );
 
+// Route to update a new item
+router.put(
+  "/projects/edit/:id([0-9]+)",
+  authMiddleware,
+  projectControllers.updateProject
+);
+
 /* ************************************************************************* */
 
 module.exports = router;

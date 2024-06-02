@@ -13,10 +13,18 @@ const GlobalContext = createContext();
 
 function GlobalContextProvider({ children, apiService }) {
   const [projects, setProjects] = useState([]);
+  const [project, setProject] = useState({
+    title: "",
+    description: "",
+    fonction: "",
+    url: "",
+  });
   const givenData = useLoaderData();
   const navigate = useNavigate();
+  // const { title } = useParams();
 
   const [user, setUser] = useState(givenData?.preloadUser?.data);
+
   const [formValue, setFormValue] = useState({
     email: "",
     password: "",
@@ -63,6 +71,20 @@ function GlobalContextProvider({ children, apiService }) {
       }
     };
     getProjects();
+  }, []);
+
+  useEffect(() => {
+    const getProject = async () => {
+      try {
+        // const response = await apiService.get(
+        //   `http://localhost:3310/api/projects/${title}`
+        // );
+        // setProject(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getProject();
   }, []);
 
   const ProjectArray = [
@@ -124,8 +146,10 @@ function GlobalContextProvider({ children, apiService }) {
       formValue,
       login,
       handleLogout,
+      project,
+      setProject,
     }),
-    [ProjectArray, ToolArray, apiService, projects, user, formValue]
+    [ProjectArray, ToolArray, apiService, projects, user, formValue, project]
   );
 
   return (
