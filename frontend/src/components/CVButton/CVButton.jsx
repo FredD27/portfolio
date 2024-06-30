@@ -6,7 +6,7 @@ function CVButton() {
     const link = document.createElement("a");
 
     // Définir l'URL du fichier PDF
-    link.href = "../src/assets/CV Druet.pdf";
+    link.href = "../src/assets/Alternance CV Druet.pdf";
 
     // Définir l'attribut de téléchargement avec le nom souhaité pour le fichier
     link.download = "CV_Frederique_Druet.pdf";
