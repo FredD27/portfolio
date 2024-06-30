@@ -21,7 +21,7 @@ function ProjectCard() {
 
   return (
     <div className="carroussel-container">
-      <h1 className="titles">Mon Portefolio</h1>
+      <h1 className="titles">Mon Portfolio</h1>
       <img src="../src/assets/arrow.png" className="arrow" alt="Fleche" />
       <div className="projet-container">
         {projects.map((projet, index) => {
